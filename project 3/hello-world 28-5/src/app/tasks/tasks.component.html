@@ -1,0 +1,42 @@
+<div class="container">
+  {{date | date:'dd-MM-yyyy'}}
+  <div class="card" >
+    <div class="card-header">
+     {{name}}`s Tasks <span *ngIf="getPendingTasks()>0" [class.bg-danger]="getPendingTasks()>3" [class.bg-success]="getPendingTasks()<=3">{{getPendingTasks()}}</span> 
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <input #inputTitle (keyup.enter)="add(inputTitle.value);inputTitle.value=''" placeholder="Your task" type="text" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <button (click)="add(inputTitle.value);inputTitle.value=''" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+    <div class="row m-0" >
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of tasks;let i=index">
+              <td>{{i+1}}</td>
+            <td [class.done-task]="task.Done"><a [routerLink]="['/details',task.ID]">{{task.Title | uppercase | maxLength:15}}</a> </td>
+            <td>
+              <input type="checkbox" (change)="update(task)" [checked]="task.Done">
+            </td>
+            <td>
+              <img *ngIf="task.IsDeleting" src="/assets/ajax-loader.gif">
+              <button *ngIf="!task.IsDeleting" type="button" (click)="delete(i)" class="btn btn-danger">DELETE</button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>

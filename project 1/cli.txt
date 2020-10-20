@@ -1,0 +1,5 @@
+1-npm install -g @angular/cli
+2-ng new hello-world
+3-cd hello-world >>  npm install (If erros only)
+4-ng serve --open --port 5200
+

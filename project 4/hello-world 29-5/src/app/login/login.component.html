@@ -1,0 +1,30 @@
+<div class="container">
+  <form [formGroup]="formLogin">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" formControlName="Email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+      <small  class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Mobile</label>
+      <input type="text" formControlName="Mobile" class="form-control" aria-describedby="emailHelp" placeholder="Enter mobile">
+      <small *ngIf="formLogin.controls.Mobile.touched"  class="text-danger form-text">touched</small>
+      <small *ngIf="formLogin.controls.Mobile.dirty"  class="text-danger form-text">dirty</small>
+
+<div *ngIf="formLogin.controls.Mobile.invalid">invalid</div>
+      <div *ngIf="!formLogin.controls.Mobile.valid && formLogin.controls.Mobile.dirty">
+        <small *ngIf="formLogin.controls.Mobile.errors.required"  class="text-danger form-text">required  mobile</small>
+        <small  *ngIf="formLogin.controls.Mobile.errors.pattern" class="text-danger form-text">mobile only numbers</small>
+        <small  *ngIf="formLogin.controls.Mobile.errors.maxlength" class="text-danger form-text">mobile length is 11</small>
+        <small  *ngIf="formLogin.controls.Mobile.errors.minlength" class="text-danger form-text">mobile length is 11</small>
+
+      </div>
+    </div>
+    <div class="form-group">
+      <label >Password</label>
+      <input type="password" formControlName="Password" class="form-control"  placeholder="Password">
+    </div>
+   
+    <button type="submit" (click)="login()" [disabled]="formLogin.invalid" class="btn btn-primary">Submit</button>
+  </form>
+</div>

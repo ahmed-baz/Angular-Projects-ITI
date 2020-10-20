@@ -1,0 +1,7 @@
+<h1>Fisrt Name is {{student.firstName}}</h1>
+<input type="text" #inputFirstName (keyup.enter)="changeFisrtName(inputFirstName.value)">
+<h1>Last Name is {{student.lastName}}</h1>
+<button (click)="changeLastName()">change Last Name</button>
+<h1>{{5*10}}</h1>
+<h1>Full Name is {{getFullName()}}</h1>
+<h1>Age {{student.age}}</h1>

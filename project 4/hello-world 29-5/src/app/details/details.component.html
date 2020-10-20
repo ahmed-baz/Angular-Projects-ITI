@@ -1,0 +1,5 @@
+<p>
+  details works! {{id}}
+</p>
+<h1>Task stars : {{taskRating}}</h1>
+<app-rating [stars]="taskRating" (starsChanged)="onStarsChanged($event)"></app-rating>

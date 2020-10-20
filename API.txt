@@ -1,0 +1,9 @@
+1-Import HttpClientModule  >> @angular/common/http
+2-HttpClient.
+3-post,get,delete,put.
+4-reponse.
+
+http://api.mohamed-sadek.com/
+
+1- Get All Tasks http://api.mohamed-sadek.com/task/get
+2- POST Task http://api.mohamed-sadek.com/task/post
